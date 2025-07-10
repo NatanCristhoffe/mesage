@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Convite Especial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 50px;
+      font-size: 28px;
+      max-width: 90vw;
+      word-wrap: break-word;
+    }
+
+    .buttons {
+      position: relative;
+      width: 90vw;
+      height: 300px;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      position: absolute;
+      transition: all 0.2s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    #yesBtn {
+      background-color: #28a745;
+      color: white;
+      left: 100px;
+      top: 100px;
+    }
+
+    #noBtn {
+      background-color: #dc3545;
+      color: white;
+      left: 300px;
+      top: 100px;
+    }
+
+    /* Ajustes para telas pequenas */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 22px;
+        margin-bottom: 30px;
+      }
+      .buttons {
+        height: 200px;
+      }
+      #yesBtn, #noBtn {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+      /* Ajusta posição para caber melhor no mobile */
+      #yesBtn {
+        left: 20px !important;
+        top: 70px !important;
+        position: absolute;
+      }
+      #noBtn {
+        left: 150px !important;
+        top: 70px !important;
+        position: absolute;
+      }
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      color: #6f42c1;
+      max-width: 90vw;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 15px;
+      background-color: #fff0f6;
+      border-radius: 15px;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+
+    .message p {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    .music-link {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #6c757d;
+    }
+
+    .music-link a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .music-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Estilo do GIF para não ficar gigante */
+    .tenor-gif-embed {
+      margin: 15px auto;
+      max-width: 300px; /* limite máximo no desktop */
+      width: 100%;
+      height: auto !important;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Fontes do título maior no mobile */
+    @media (max-width: 480px) {
+    h1 {
+        font-size: 30px; /* maior para mobile */
+        margin-bottom: 30px;
+    }
+    }
+
+    .message p {
+    margin: 10px 0;
+    font-size: 20px;
+    }
+
+    /* Fonte maior nos parágrafos da mensagem no mobile */
+    @media (max-width: 480px) {
+    .message p {
+        font-size: 26px; /* fonte maior no mobile */
+    }
+
+    .music-link {
+        font-size: 22px; /* texto do link maior */
+    }
+    }
+  </style>
+</head>
+<body>
+  <h1>Oi Bruna... você quer sair comigo? 🥺💖</h1>
+  <div class="buttons">
+    <button id="yesBtn">Sim</button>
+    <button id="noBtn">Não</button>
+  </div>
+
+  <div class="message" id="message">
+    <!-- Mensagem sarcástica em cima do GIF -->
+    <p><strong>Nossa, ainda bem que você escolheu "Sim"😏 kkkkkk</strong></p>
+
+    <!-- GIF do gatinho feliz -->
+    <div
+      class="tenor-gif-embed"
+      data-postid="8293507166171105022"
+      data-share-method="host"
+      data-aspect-ratio="1.02804"
+      data-width="100%"
+      style="margin-bottom: 20px;"
+    >
+      <a href="https://tenor.com/view/hanannah-happie-hananah-gif-8293507166171105022">Hanannah Happie Sticker</a>
+      from <a href="https://tenor.com/search/hanannah-stickers">Hanannah Stickers</a>
+    </div>
+
+    <p>Seu sorriso… se eu lembro bem, é lindo.</p>
+    <p>Mas queria mesmo é confirmar isso pessoalmente 💖</p>
+
+    <div class="music-link">
+      <p>E como eu não esqueço de nada... lembrei que você curte Gaab 🎶</p>
+      <a
+        href="https://www.youtube.com/watch?v=YjL75gtkS1Q&list=RDYjL75gtkS1Q&start_radio=1"
+        target="_blank"
+        >Toca essa aqui — espero que ainda seja sua vibe 💘</a
+      >
+    </div>
+  </div>
+
+  <!-- Script do GIF -->
+  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const message = document.getElementById('message');
+    const container = document.querySelector('.buttons');
+
+    const getRandomPosition = () => {
+      const maxX = container.offsetWidth - noBtn.offsetWidth;
+      const maxY = container.offsetHeight - noBtn.offsetHeight;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      return { x: randomX, y: randomY };
+    };
+
+    // Desktop: Foge do mouse
+    document.addEventListener('mousemove', (e) => {
+      const rect = noBtn.getBoundingClientRect();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const buttonX = rect.left + rect.width / 2;
+      const buttonY = rect.top + rect.height / 2;
+      const distance = Math.hypot(mouseX - buttonX, mouseY - buttonY);
+
+      if (distance < 50) {
+        const { x, y } = getRandomPosition();
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+      }
+    });
+
+    // Mobile: Foge do toque
+    noBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const { x, y } = getRandomPosition();
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    // Clicou no SIM
+    yesBtn.addEventListener('click', () => {
+      message.style.display = 'block';
+      message.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
